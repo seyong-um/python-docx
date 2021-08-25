@@ -178,6 +178,14 @@ class Table(Parented):
         return cells
 
     @property
+    def _cells_regardness_merge(self):
+        cells = []
+        for tc in self._tbl.iter_tcs():
+            cells.append(_Cell(tc, self))
+
+        return cells
+
+    @property
     def _column_count(self):
         """
         The number of grid columns in this table.
